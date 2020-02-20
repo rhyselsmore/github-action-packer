@@ -1,0 +1,11 @@
+name: 'packer - validate'
+description: 'Validate a packer template'
+inputs:
+  template-path:
+    description: 'Path to Packer Template'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.template-path }}
