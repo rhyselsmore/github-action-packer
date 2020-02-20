@@ -11,7 +11,7 @@ set +e
 
 # Run packer template validator
 OUTPUT=$(mktemp)
-packer build -color=false ${TEMPLATE_FILE} | tee $OUTPUT
+packer build ${TEMPLATE_FILE} | tee $OUTPUT
 CODE=${PIPESTATUS[0]}
 
 

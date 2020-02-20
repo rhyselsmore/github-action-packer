@@ -9,7 +9,7 @@ fi
 
 set +e
 # Run packer template validator
-OUTPUT=$(sh -c "packer validate -color=false ${TEMPLATE_FILE}" 2>&1)
+OUTPUT=$(sh -c "packer validate ${TEMPLATE_FILE}" 2>&1)
 CODE=$?
 
 if [ $CODE -ne 0 ]; then
