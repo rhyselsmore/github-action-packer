@@ -8,14 +8,15 @@ if [[ ! -f "$TEMPLATE_FILE" ]]; then
 fi
 
 set +e
+
 # Run packer template validator
-OUTPUT=$(sh -c "packer validate -color=false ${TEMPLATE_FILE}" 2>&1)
-CODE=$?
+OUTPUT=$(mktemp)
+packer build -color=false ${TEMPLATE_FILE} | tee $OUTPUT
+CODE=${PIPESTATUS[0]}
+
 
 if [ $CODE -ne 0 ]; then
-    echo "::error ::Template Validation Failed"
+    echo "::error ::Template Build Failed"
     echo "$OUTPUT"
     exit 1
 fi
-
-echo "Template Successfully Validated"
