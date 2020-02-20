@@ -1,0 +1,5 @@
+name: 'packer - version'
+description: 'Display the version of packer'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
