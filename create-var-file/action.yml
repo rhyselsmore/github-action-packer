@@ -1,0 +1,5 @@
+name: 'packer - Create Var File'
+description: 'Create a var file from arbituary inputs'
+runs:
+  using: 'node12'
+  main: 'index.js'
